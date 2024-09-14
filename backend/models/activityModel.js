@@ -1,8 +1,8 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-// Path to the SQLite database file
-const dbPath = path.resolve('C:/Users/45622395/hackathon/backend/database/activities.db');
+// Path to the SQLite database
+const dbPath = path.resolve(__dirname, '../../database/activities.db');
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database:', err);
@@ -45,55 +45,20 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
 });
 
-// Insert a profile into the profiles table
-function insertProfile(profileType) {
-    return new Promise((resolve, reject) => {
-        db.run(
-            `INSERT INTO profiles (profile_type) VALUES (?)`,
-            [profileType],
-            function (err) {
-                if (err) {
-                    return reject(err);
-                }
-                resolve(this.lastID);  // Return the profile ID
-            }
-        );
+// Function to insert an activity
+function insertActivity(profile, activities, callback) {
+    const stmt = db.prepare(`
+        INSERT INTO activities (profile, activity_type, element, class, element_id, timestamp)
+        VALUES (?, ?, ?, ?, ?, ?)
+    `);
+
+    activities.forEach(activity => {
+        stmt.run(profile, activity.type, activity.element, activity.class, activity.id, activity.timestamp);
     });
 }
 
-// Insert an activity into the activities table
-function insertActivity(profileId, activityDetails) {
-    return new Promise((resolve, reject) => {
-        db.run(
-            `INSERT INTO activities (profile_id, activity, element, action_type) VALUES (?, ?, ?, ?)`,
-            [profileId, activityDetails.activity, activityDetails.element, activityDetails.action_type],
-            function (err) {
-                if (err) {
-                    return reject(err);
-                }
-                resolve();
-            }
-        );
-    });
-}
-
-// Insert a profile and its activities into the database
-async function insertProfileWithActivities(profileType, activities) {
-    try {
-        // Insert the profile and get the profile ID
-        const profileId = await insertProfile(profileType);
-
-        // Insert each activity and link it to the profile
-        for (const activity of activities) {
-            await insertActivity(profileId, activity);
-        }
-
-        console.log(`Profile and activities for ${profileType} inserted successfully.`);
-    } catch (error) {
-        console.error('Error inserting profile with activities:', error);
-    }
-}
-
+// Export the function
 module.exports = {
-    insertProfileWithActivities
+    insertActivity,
+    // If you have more functions, export them here
 };
