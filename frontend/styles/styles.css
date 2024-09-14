@@ -29,8 +29,8 @@ input[type="text"], input[type="file"], select {
 textarea {
     width: 97%;
     height: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    margin: 10px 0px;
+    border: 1px solid;
     border-radius: 4px;
     font-size: 16px;
 }
@@ -108,6 +108,22 @@ button {
     color: white;
 }
 
+.section2 .view-button {
+    font-size: 10px;
+    background-color: gray;
+    color: white;
+    align-items: center;
+    
+}
+
+.section2 .edit-button {
+    font-size: 10px;
+    background-color: gray;
+    color: white;
+    align-items: center;
+    
+}
+
 /*tabla*/
 table {
     width: 100%;
@@ -126,20 +142,12 @@ th {
 
 
 
-
-
-
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
 li {
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px;
 }
 
 li:last-child {
@@ -148,22 +156,9 @@ li:last-child {
 
 .buttons {
     display: flex;
-    gap: 3px;
+    align-items: center;
+    font-size: 14px;
 }
-
-
-
-.view-button {
-    background-color: #007bff;
-}
-
-.edit-button {
-    background-color: #28a745;
-}
-
-
-
-
 
 
 
@@ -301,11 +296,18 @@ li:last-child {
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Elimina las viñetas predeterminadas */
+    padding-left: 0; /* Elimina el espacio adicional en la izquierda */
+}
+
+li::before {
+    content: "– "; /* Agrega un guion antes de cada elemento */
+    color: #000; /* Color del guion */
 }
 
 li {
+    font-size: 16px;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    align-items: center;
 }
