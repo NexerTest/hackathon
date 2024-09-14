@@ -1,13 +1,22 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-// Path to the SQLite database
-const dbPath = path.resolve(__dirname, '../../database/activities.db');
+// Path to the SQLite database file
+const dbPath = path.resolve('C:/Users/45622395/hackathon/backend/database/activities.db');
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database:', err);
     } else {
         console.log('Connected to SQLite database');
+
+        // Drop the old activities table if it exists
+        db.run(`DROP TABLE IF EXISTS activities`, (err) => {
+            if (err) {
+                console.error('Error dropping old activities table:', err);
+            } else {
+                console.log('Dropped old activities table.');
+            }
+        });
 
         // Create the profiles table if it doesn't exist
         db.run(`
@@ -24,7 +33,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
             }
         });
 
-        // Create the activities table if it doesn't exist
+        // Recreate the activities table with the correct schema
         db.run(`
             CREATE TABLE IF NOT EXISTS activities (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,20 +54,59 @@ const db = new sqlite3.Database(dbPath, (err) => {
     }
 });
 
-// Function to insert an activity
-function insertActivity(profile, activities, callback) {
-    const stmt = db.prepare(`
-        INSERT INTO activities (profile, activity_type, element, class, element_id, timestamp)
-        VALUES (?, ?, ?, ?, ?, ?)
-    `);
-
-    activities.forEach(activity => {
-        stmt.run(profile, activity.type, activity.element, activity.class, activity.id, activity.timestamp);
+// Insert a profile into the profiles table
+function insertProfile(profileType) {
+    return new Promise((resolve, reject) => {
+        db.run(
+            `INSERT INTO profiles (profile_type) VALUES (?)`,
+            [profileType],
+            function (err) {
+                if (err) {
+                    console.error('Error inserting profile:', err);
+                    return reject(err);
+                }
+                resolve(this.lastID);  // Return the profile ID
+            }
+        );
     });
 }
 
-// Export the function
+// Insert an activity into the activities table
+function insertActivity(profileId, activityDetails) {
+    return new Promise((resolve, reject) => {
+        db.run(
+            `INSERT INTO activities (profile_id, activity, element, action_type) VALUES (?, ?, ?, ?)`,
+            [profileId, activityDetails.activity, activityDetails.element, activityDetails.action_type],
+            function (err) {
+                if (err) {
+                    console.error('Error inserting activity:', err);
+                    return reject(err);
+                }
+                resolve();
+            }
+        );
+    });
+}
+
+// Insert a profile and its activities into the database
+async function insertProfileWithActivities(profileType, activities) {
+    try {
+        // Insert the profile and get the profile ID
+        const profileId = await insertProfile(profileType);
+
+        // Insert each activity and link it to the profile
+        for (const activity of activities) {
+            await insertActivity(profileId, activity);
+        }
+
+        console.log(`Profile and activities for ${profileType} inserted successfully.`);
+    } catch (error) {
+        console.error('Error inserting profile with activities:', error);
+        throw error;  // Rethrow the error for handling in the calling function
+    }
+}
+
+// Export the functions for use in app.js
 module.exports = {
-    insertActivity,
-    // If you have more functions, export them here
+    insertProfileWithActivities
 };
