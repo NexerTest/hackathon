@@ -49,3 +49,21 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
+function fetchItems() {
+    fetch('http://localhost:3000/profiles')
+        .then(response => response.json())
+        .then(data => {
+            const itemList = document.getElementById('itemList');
+            itemList.innerHTML = ''; // Limpiar lista
+            data.profiles.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.profile_type;
+                itemList.appendChild(li);
+            });
+        });
+}
+
+// Obtener datos al cargar la página
+window.onload = fetchItems;
