@@ -3,7 +3,7 @@ const { generateUserProfile } = require('../controllers/profileController');
 
 const router = express.Router();
 
-// Route to generate a profile
+// Define the POST /api/profile route
 router.post('/', generateUserProfile);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const openaiService = require('../services/openaiService');
 
-// Generate user profile
+// Controller to handle POST /api/profile
 async function generateUserProfile(req, res) {
     const { profileType } = req.body;
 

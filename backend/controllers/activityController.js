@@ -1,10 +1,10 @@
-const activityModel = require('../models/activityModel');
+const activityModel = require('../models/activityModel'); // Ensure the correct path to the model
 
 // Save activities to the SQLite database
 function saveActivities(req, res) {
     const { profile, activities } = req.body;
 
-    // Insert activities into the database
+    // Call the insertActivity function from activityModel
     activityModel.insertActivity(profile, activities, (err) => {
         if (err) {
             console.error('Error saving activities:', err);
@@ -15,15 +15,4 @@ function saveActivities(req, res) {
     });
 }
 
-// For testing purposes: Get all activities from the database
-function getAllActivities(req, res) {
-    activityModel.fetchAllActivities((err, rows) => {
-        if (err) {
-            res.status(500).json({ error: 'Error fetching activities' });
-        } else {
-            res.status(200).json({ activities: rows });
-        }
-    });
-}
-
-module.exports = { saveActivities, getAllActivities };
+module.exports = { saveActivities };
