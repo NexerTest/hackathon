@@ -1,16 +1,15 @@
-require('dotenv').config();
 const express = require('express');
-const profileRoutes = require('./routes/profileRoutes');
-const activityRoutes = require('./routes/activityRoutes');
+const profileRoutes = require('./routes/profileRoutes');  // Import your profile routes
+const activityRoutes = require('./routes/activityRoutes');  // Import activity routes
 
 const app = express();
-app.use(express.json());
+app.use(express.json());  // Parse incoming JSON requests
 
-// Routes
+// Use the profile and activity routes
 app.use('/api/profile', profileRoutes);
 app.use('/api/activities', activityRoutes);
 
-// App port
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
