@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Case Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .user-story {
+      margin-bottom: 20px;
+    }
+    .user-story p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Story and Test Cases Generator</h1>
+    <button onclick="generateUserStory()">Generate</button>
+    <div id="user-story" class="user-story">
+      <h2>User Story</h2>
+      <p id="user-story-content"></p>
+    </div>
+    <div id="test-cases">
+      <h2>Test Cases</h2>
+      <table id="test-cases-table">
+        <thead>
+          <tr>
+            <th>Test Case</th>
+            <th>Description</th>
+            <th>Steps</th>
+            <th>Expected Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Test cases will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    function generateUserStory() {
+      fetch('http://localhost:3000/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('user-story-content').textContent = data.userStory;
+
+        const tableBody = document.querySelector('#test-cases-table tbody');
+        tableBody.innerHTML = '';
+
+        data.testCases.forEach(testCase => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>Test Case ${testCase.number}</td>
+            <td>${testCase.description}</td>
+            <td>${testCase.steps.replace(/\n/g, '<br>')}</td>
+            <td>${testCase.results}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error generating user story and test cases:', error);
+      });
+    }
+  </script>
+</body>
+</html>
