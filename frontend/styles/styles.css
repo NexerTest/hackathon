@@ -1,0 +1,301 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="file"], select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
+
+
+textarea {
+    width: 97%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+/*secciones*/
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    
+}
+
+.section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.section1 {
+    flex: 1.5;
+    background-color: rgb(228, 219, 219);
+    width: 50%;
+}
+
+.section2 {
+    background-color: rgb(228, 219, 219);
+}
+.section3 {
+    flex: 3;
+    background-color: rgb(228, 219, 219);
+}
+.section4 {
+    background-color: rgb(228, 219, 219);
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+.content {
+    font-size: 16px;
+    
+}
+
+button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    margin-right: 10px;
+    
+    color: #fff;
+}
+
+.section1 button {
+    background-color: gray;
+    color: white;
+}
+
+.section2 button {
+    background-color: gray;
+    color: white;
+}
+.section3 button {
+    background-color: gray;
+    color: white;
+}
+
+/*tabla*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 3px;
+}
+
+
+
+.view-button {
+    background-color: #007bff;
+}
+
+.edit-button {
+    background-color: #28a745;
+}
+
+
+
+
+
+
+
+  /* Estilo para el contenedor del dropdown */
+.dropdown {
+    position: relative; /* Necesario para posicionar el contenido del dropdown */
+    display: inline-block;
+}
+
+/* Estilo para el botón del dropdown */
+.dropdown-btn {
+    
+    background-color: #ffffff; /* Color de fondo del botón */
+    color: rgb(3, 3, 3); /* Color del texto */
+    padding: 2px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: #000000; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+
+   
+}
+
+/* Oculta el checkbox */
+.dropdown-toggle {
+    display: none;
+}
+
+/* Estilo para el contenido del dropdown */
+.dropdown-content {
+    display: none; /* Oculta el contenido por defecto */
+    position: absolute; /* Posiciona el contenido de forma absoluta respecto al contenedor */
+    background-color: #f9f9f9; /* Color de fondo */
+    min-width: 160px; /* Ancho mínimo */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra del dropdown */
+    z-index: 1; /* Asegura que el contenido esté sobre otros elementos */
+    padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo para los ítems del dropdown */
+.dropdown-content label {
+    display: block; /* Muestra los elementos en bloque */
+    padding: 8px 12px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+    color: black; /* Color del texto */
+    cursor: pointer; /* Cursor de puntero */
+}
+
+/* Estilo para los ítems al pasar el ratón sobre ellos */
+.dropdown-content label:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el ratón */
+}
+
+/* Muestra el contenido del dropdown cuando el checkbox está marcado */
+.dropdown-toggle:checked + .dropdown-btn + .dropdown-content {
+    display: block;
+}
+
+
+
+
+
+/*MODAL*/
+
+/* Estilo del botón que abre el modal */
+.open-modal {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1; /* Encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Color de fondo */
+    background-color: rgba(0,0,0,0.4); /* Fondo con opacidad */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+/* Estilo del botón de cierre */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo del botón dentro del modal */
+.modal-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-button-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-button-secondary {
+    background-color: #6c757d;
+    color: white;
+}
