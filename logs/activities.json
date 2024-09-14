@@ -1,19 +1,184 @@
-{
-    "profile": "experienced",
-    "activities": [
-        {
-            "type": "click",
-            "element": "BUTTON",
-            "class": "btn-buy",
-            "id": "buy-button",
-            "timestamp": "2024-09-14T12:00:00Z"
-        },
-        {
-            "type": "input",
-            "element": "INPUT",
-            "class": "search-input",
-            "id": "search-bar",
-            "timestamp": "2024-09-14T12:01:00Z"
-        }
-    ]
-}
+[
+    {
+        "profile": "experienced",
+        "activities": [
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-buy",
+                "id": "buy-button",
+                "timestamp": "2024-09-14T12:00:00Z"
+            },
+            {
+                "type": "input",
+                "element": "INPUT",
+                "class": "search-input",
+                "id": "search-bar",
+                "timestamp": "2024-09-14T12:01:00Z"
+            },
+            {
+                "type": "click",
+                "element": "A",
+                "class": "product-link",
+                "id": "product-123",
+                "timestamp": "2024-09-14T12:02:00Z"
+            }
+        ]
+    },
+    {
+        "profile": "inexperienced",
+        "activities": [
+            {
+                "type": "click",
+                "element": "A",
+                "class": "help-link",
+                "id": "help-123",
+                "timestamp": "2024-09-14T12:05:00Z"
+            },
+            {
+                "type": "input",
+                "element": "INPUT",
+                "class": "form-input",
+                "id": "email-input",
+                "timestamp": "2024-09-14T12:06:00Z"
+            },
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-submit",
+                "id": "submit-button",
+                "timestamp": "2024-09-14T12:07:00Z"
+            }
+        ]
+    },
+    {
+        "profile": "low_tech_skills",
+        "activities": [
+            {
+                "type": "click",
+                "element": "A",
+                "class": "nav-link",
+                "id": "nav-123",
+                "timestamp": "2024-09-14T12:10:00Z"
+            },
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-help",
+                "id": "help-button",
+                "timestamp": "2024-09-14T12:11:00Z"
+            },
+            {
+                "type": "input",
+                "element": "INPUT",
+                "class": "form-input",
+                "id": "password-input",
+                "timestamp": "2024-09-14T12:12:00Z"
+            }
+        ]
+    },
+    {
+        "profile": "novice",
+        "activities": [
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-random",
+                "id": "random-click",
+                "timestamp": "2024-09-14T12:15:00Z"
+            },
+            {
+                "type": "input",
+                "element": "INPUT",
+                "class": "form-input",
+                "id": "name-input",
+                "timestamp": "2024-09-14T12:16:00Z"
+            },
+            {
+                "type": "click",
+                "element": "A",
+                "class": "product-link",
+                "id": "product-456",
+                "timestamp": "2024-09-14T12:17:00Z"
+            }
+        ]
+    },
+    {
+        "profile": "explorer",
+        "activities": [
+            {
+                "type": "click",
+                "element": "A",
+                "class": "category-link",
+                "id": "category-123",
+                "timestamp": "2024-09-14T12:20:00Z"
+            },
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-filter",
+                "id": "filter-button",
+                "timestamp": "2024-09-14T12:21:00Z"
+            },
+            {
+                "type": "input",
+                "element": "INPUT",
+                "class": "search-input",
+                "id": "search-bar",
+                "timestamp": "2024-09-14T12:22:00Z"
+            }
+        ]
+    },
+    {
+        "profile": "indecisive",
+        "activities": [
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-add-to-cart",
+                "id": "add-to-cart-123",
+                "timestamp": "2024-09-14T12:25:00Z"
+            },
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-remove-from-cart",
+                "id": "remove-from-cart-123",
+                "timestamp": "2024-09-14T12:26:00Z"
+            },
+            {
+                "type": "click",
+                "element": "A",
+                "class": "product-link",
+                "id": "product-789",
+                "timestamp": "2024-09-14T12:27:00Z"
+            }
+        ]
+    },
+    {
+        "profile": "impulsive",
+        "activities": [
+            {
+                "type": "click",
+                "element": "A",
+                "class": "promo-link",
+                "id": "promo-123",
+                "timestamp": "2024-09-14T12:30:00Z"
+            },
+            {
+                "type": "click",
+                "element": "BUTTON",
+                "class": "btn-buy-now",
+                "id": "buy-now-button",
+                "timestamp": "2024-09-14T12:31:00Z"
+            },
+            {
+                "type": "click",
+                "element": "A",
+                "class": "review-link",
+                "id": "review-123",
+                "timestamp": "2024-09-14T12:32:00Z"
+            }
+        ]
+    }
+]
