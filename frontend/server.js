@@ -50,6 +50,19 @@ app.get('/profiles', (req, res) => {
     res.json({ profiles: rows });
   });
 });
+
+// Ruta para obtener todos los perfiles
+app.get('/activities/:id', (req, res) => {
+    const id= req.params.id;
+    db.all('SELECT a.activity FROM profile_activities pa, profiles p, activities a  where p.profile_type=? and p.id == pa.profile_id and pa.activity_id =a.id',[id], (err, rows) => {
+      if (err) {
+        console.error('Error al obtener actividades del perfil:', err.message);
+        return res.status(500).json({ error: err.message });
+      }
+      console.log('actividades obtenidos de la base de datos:', rows); // Verificar los datos obtenidos en la consola del servidor
+      res.json({ profiles: rows });
+    });
+  });
  
 // Ruta para crear un nuevo perfil
 app.post('/profiles', (req, res) => {
