@@ -20,16 +20,16 @@ function verElemento(elemento) {
    // alert(`Ver detalles de ${elemento}`);
             // Obtener el modal y los botones
          modal = document.getElementById("view-activities-modal");
-         openViewModalBtn = document.getElementById("openViewModalBtn"+elemento);
-         closeviewModalBtn = document.getElementById("closeViewModalBtn");
+         var openViewModalBtn = document.getElementById("openViewModalBtn"+elemento);
+         var closeviewModalBtn = document.getElementById("closeViewModalBtn");
 
         // Abrir el modal cuando se haga clic en el botón
-        openVievModalBtn.onclick = function() {
+        openViewModalBtn.onclick = function() {
             modal.style.display = "flex";
         }
 
         // Cerrar el modal cuando se haga clic en el botón de cierre (X)
-        closeModalBtn.onclick = function() {
+        closeviewModalBtn.onclick = function() {
             modal.style.display = "none";
         }
 
@@ -42,12 +42,7 @@ function verElemento(elemento) {
        
 }
 
-function editarElemento(elemento) {
-    alert(`Editar ${elemento}`);
-        // Aquí podrías redirigir a una página de edición
-        // window.location.href = `/editar/${elemento}`;
-}
-
+function generarTest(){
 // Obtener el modal y los botones
 var modal = document.getElementById("myModal");
 var openModalBtn = document.getElementById("openModalBtn");
@@ -69,6 +64,15 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+}
+
+function editarElemento(elemento) {
+    alert(`Editar ${elemento}`);
+        // Aquí podrías redirigir a una página de edición
+        // window.location.href = `/editar/${elemento}`;
+}
+
+
 
 function addList(item, itemList){
     var profile= capitalizeFirstLetter(item.profile_type);
@@ -155,6 +159,40 @@ function getActivitiesByProfile(id){
             });
         });
 }
+
+
+function generateUserStory() {
+    fetch('http://localhost:3000/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('prompt').textContent = data.userStory;
+      console.log(data.userStory)
+
+      const tableBody = document.querySelector('#test-cases-table tbody');
+      tableBody.innerHTML = '';
+
+      data.testCases.forEach(testCase => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>Test Case ${testCase.number}</td>
+          <td>${testCase.description}</td>
+          <td>${testCase.steps.replace(/\n/g, '<br>')}</td>
+          <td>${testCase.results}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(error => {
+      console.error('Error generating user story and test cases:', error);
+    });
+  }
+
+
 // Obtener datos al cargar la página
 window.onload = getProfiles;
 

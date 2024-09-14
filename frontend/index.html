@@ -14,10 +14,10 @@
             <div class="content">
                 
                 <div class="form-group">
-                    <textarea placeholder="Add your user story to generate the test cases..."></textarea>
+                    <textarea id= "prompt" placeholder="Add your user story to generate the test cases..."></textarea>
                 </div>
                 
-                <button onclick="mostrarMensaje('¡Has hecho clic en la Sección 1!')">Generate test cases</button>
+                <button onclick="generateUserStory()">Generate test cases</button>
             </div>
             <div class="section section2">
                 <div class="header">Profiles</div>
@@ -45,26 +45,28 @@
             <div class="content">
                 
                 <div class="form-group">
-                    <table id="dataTable">
-                        <thead>
+                    <div id="test-cases">
+                        <table id="test-cases-table">
+                            <thead>
                             <tr>
-                                <th>Test case</th>
+                                <th>Test Case</th>
                                 <th>Description</th>
                                 <th>Steps</th>
-                                <th>Expected result</th>
+                                <th>Expected Result</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Los datos se llenarán aquí mediante JavaScript -->
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <!-- Test cases will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="textInput">Url</label>
-                    <input type="text" id="input_url" name="input_url" placeholder="Add your url...">
+                    <label for="url">URL</label>
+                        <input type="text" placeholder="Add your url...">
                 </div>
-        
+
                 <div class="form-group">
                     <div class="dropdown">
                         <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
@@ -82,27 +84,8 @@
         </div>
         
     </div>
-    <!-- El modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModalBtn">&times;</span>
-            <h2>Encabezado del Modal</h2>
-            <p>Este es el contenido del modal. Puedes añadir texto, imágenes, formularios, etc.</p>
-            <button class="modal-button modal-button-primary">Aceptar</button>
-            <button class="modal-button modal-button-secondary">Cancelar</button>
-        </div>
-    </div>
+    
 
-
-    <div id="view-activities-modal" class="modal"></div>
-        <div class="modal-content">
-            <span class="close" id="closeViewModalBtn">&times;</span>
-            <h2>Encabezado del Modal</h2>
-            <p>Este es el contenido del modal. Puedes añadir texto, imágenes, formularios, etc.</p>
-            <button class="modal-button modal-button-primary">Aceptar</button>
-            <button class="modal-button modal-button-secondary">Cancelar</button>
-        </div>
-    </div>
 <script src="scripts/main.js"></script>
 </body>
 </html>
