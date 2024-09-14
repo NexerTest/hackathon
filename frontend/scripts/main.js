@@ -56,12 +56,15 @@ function fetchItems() {
         .then(response => response.json())
         .then(data => {
             const itemList = document.getElementById('itemList');
+            const div_drop=  document.getElementById('dropdown-content');
             itemList.innerHTML = ''; // Limpiar lista
+            
             data.profiles.forEach(item => {
                 const li = document.createElement('li');
+                
+                //add li en profile
                 li.id=item.profile_type;
                 li.textContent = item.profile_type;
-                
                 const div=document.createElement('div')
                 div.className="buttons"
                 const btn1 = document.createElement('button');
@@ -85,6 +88,22 @@ function fetchItems() {
                 li.append
                 itemList.appendChild(li);
                 
+
+                //add label en dropdown
+
+                const label = document.createElement('label');
+                const input= document.createElement('input');
+                input.type="checkbox";
+                input.name="button name " + item.profile_type;
+                input.value="button value "+ item.profile_type;
+                
+                input.append
+                label.appendChild(input);
+                label.innerHTML += item.profile_type;    
+
+                label.append;
+                
+                div_drop.appendChild(label);
 
             });
         });

@@ -214,7 +214,7 @@ li:last-child {
 
 /* Estilo para los ítems al pasar el ratón sobre ellos */
 .dropdown-content label:hover {
-    background-color: #f1f1f1; /* Color de fondo al pasar el ratón */
+    background-color: #d1cfcf; /* Color de fondo al pasar el ratón */
 }
 
 /* Muestra el contenido del dropdown cuando el checkbox está marcado */
