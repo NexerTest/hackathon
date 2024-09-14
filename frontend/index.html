@@ -22,30 +22,11 @@
             <div class="section section2">
                 <div class="header">Profiles</div>
                 <div class="content">
-                    <ul>
-                    <li>
-                        Elemento 1
-                        <div class="buttons">
-                            <button class="view-button" onclick="verElemento('Elemento 1')">Ver</button>
-                            <button class="edit-button" onclick="editarElemento('Elemento 1')">Editar</button>
-                        </div>
-                    </li>
-                    <li>
-                        Elemento 2
-                        <div class="buttons">
-                            <button class="view-button" onclick="verElemento('Elemento 2')">Ver</button>
-                            <button class="edit-button" onclick="editarElemento('Elemento 2')">Editar</button>
-                        </div>
-                    </li>
-                    <li>
-                        Elemento 3
-                        <div class="buttons">
-                            <button class="view-button" onclick="verElemento('Elemento 3')">Ver</button>
-                            <button class="edit-button" onclick="editarElemento('Elemento 3')">Editar</button>
-                        </div>
-                    </li>
-                    </ul>
                     
+                    <ol id="itemList">
+                        
+                    </ol>
+
                     <div class="form-group">
                         <textarea placeholder="Add your prompt to create another profile"></textarea>
                     </div>
@@ -85,23 +66,8 @@
                     <div class="dropdown">
                         <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
                         <label for="dropdown-toggle" class="dropdown-btn">Seleccionar Opciones</label>
-                        <div class="dropdown-content">
-                            <label>
-                                <input type="checkbox" name="option1" value="Option 1">
-                                Opción 1
-                            </label>
-                            <label>
-                                <input type="checkbox" name="option2" value="Option 2">
-                                Opción 2
-                            </label>
-                            <label>
-                                <input type="checkbox" name="option3" value="Option 3">
-                                Opción 3
-                            </label>
-                            <label>
-                                <input type="checkbox" name="option4" value="Option 4">
-                                Opción 4
-                            </label>
+                        <div id="dropdown-content" class="dropdown-content">
+                            
                         </div>
                     </div>
                     <div>
