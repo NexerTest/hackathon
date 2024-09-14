@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Modales</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="section section1">
+            <div class="header">User story</div>
+            <div class="content">
+                
+                <div class="form-group">
+                    <textarea placeholder="Add your user story..."></textarea>
+                </div>
+                
+                <button onclick="mostrarMensaje('¡Has hecho clic en la Sección 1!')">Generar casos de prueba</button>
+            </div>
+            <div class="section section2">
+                <div class="header">Profiles</div>
+                <div class="content">
+                    <ul>
+                    <li>
+                        Elemento 1
+                        <div class="buttons">
+                            <button class="view-button" onclick="verElemento('Elemento 1')">Ver</button>
+                            <button class="edit-button" onclick="editarElemento('Elemento 1')">Editar</button>
+                        </div>
+                    </li>
+                    <li>
+                        Elemento 2
+                        <div class="buttons">
+                            <button class="view-button" onclick="verElemento('Elemento 2')">Ver</button>
+                            <button class="edit-button" onclick="editarElemento('Elemento 2')">Editar</button>
+                        </div>
+                    </li>
+                    <li>
+                        Elemento 3
+                        <div class="buttons">
+                            <button class="view-button" onclick="verElemento('Elemento 3')">Ver</button>
+                            <button class="edit-button" onclick="editarElemento('Elemento 3')">Editar</button>
+                        </div>
+                    </li>
+                    </ul>
+                    
+                    <div class="form-group">
+                        <textarea placeholder="Add your prompt to create another profile"></textarea>
+                    </div>
+                    
+                    <button onclick="mostrarMensaje('¡Has hecho clic en la Sección 1!')">Generar profile</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section section3">
+            <div class="header">Test cases</div>
+            <div class="content">
+                
+                <div class="form-group">
+                    <table id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Test case</th>
+                                <th>Description</th>
+                                <th>Steps</th>
+                                <th>Expected result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los datos se llenarán aquí mediante JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <label for="textInput">Url</label>
+                    <input type="text" id="input_url" name="input_url">
+                </div>
+        
+                <div class="form-group">
+                    <div class="dropdown">
+                        <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
+                        <label for="dropdown-toggle" class="dropdown-btn">Seleccionar Opciones</label>
+                        <div class="dropdown-content">
+                            <label>
+                                <input type="checkbox" name="option1" value="Option 1">
+                                Opción 1
+                            </label>
+                            <label>
+                                <input type="checkbox" name="option2" value="Option 2">
+                                Opción 2
+                            </label>
+                            <label>
+                                <input type="checkbox" name="option3" value="Option 3">
+                                Opción 3
+                            </label>
+                            <label>
+                                <input type="checkbox" name="option4" value="Option 4">
+                                Opción 4
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Botón para abrir el modal -->
+                    <button id="openModalBtn" class="btn">Abrir Modal</button>
+                </div>
+                <!-- Contenido del Modal -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModalBtn" class="close">&times;</span>
+                        <h2>Modal Título</h2>
+                        <p>Este es el contenido del modal.</p>
+                        <button id="actionBtn" class="btn">Acción</button>
+                    </div>
+                </div>
+                
+
+    
+            </div>
+        </div>
+        
+    </div>
+
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
+
