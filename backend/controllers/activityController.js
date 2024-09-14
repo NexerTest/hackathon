@@ -1,10 +1,10 @@
-const activityModel = require('../models/activityModel'); // Ensure the path is correct
+const activityModel = require('../models/activityModel'); // Ensure the correct path to the model
 
 // Save activities to the SQLite database
 function saveActivities(req, res) {
     const { profile, activities } = req.body;
 
-    // Call the insertActivity function
+    // Call the insertActivity function from activityModel
     activityModel.insertActivity(profile, activities, (err) => {
         if (err) {
             console.error('Error saving activities:', err);
