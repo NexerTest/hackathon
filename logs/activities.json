@@ -1,0 +1,19 @@
+{
+    "profile": "experienced",
+    "activities": [
+        {
+            "type": "click",
+            "element": "BUTTON",
+            "class": "btn-buy",
+            "id": "buy-button",
+            "timestamp": "2024-09-14T12:00:00Z"
+        },
+        {
+            "type": "input",
+            "element": "INPUT",
+            "class": "search-input",
+            "id": "search-bar",
+            "timestamp": "2024-09-14T12:01:00Z"
+        }
+    ]
+}
